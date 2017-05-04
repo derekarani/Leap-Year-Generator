@@ -1,25 +1,45 @@
 $(document).ready(function() {
+//Business Logic Begins Here...
+var leapYear = function(year) {
+
+  if ((year % 4 === 0) && (year %100 !== 0) || (year % 400 === 0)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+
+
+
+
+
+// User Interface Begins Here
+
   $("form#leap-year").submit(function(event) {
     event.preventDefault();
-
-
-
-
-
     var year = parseInt($("input#year").val());
-
-
-    var leapYear = function(year) {
-
-      if ((year % 4 === 0) && (year %100 !== 0) || (year % 400 === 0)) {
-        return true;
-      } else {
-        return false;
-      }
-    };
     var result = leapYear(year);
 
-    $("#result").text(result);
+
+    $(".year").text(year);
+
+    if (!result) {
+      $(".not").text("not");
+
+    } else {
+      $(".not").text("");
+    }
+
+    $("#result").show();
+
+
+
+
+
+
+
 
 
   });
